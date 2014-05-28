@@ -51,6 +51,11 @@ post '/login' do
   end
 end
 
+get '/logout' do
+  session[:user_id] = nil
+  erb :'auth/login'
+end
+
 get '/events/new' do
   erb :'events/new'
 end
@@ -71,6 +76,14 @@ post '/events' do
   else
      erb :'events/new'
   end
+end
+
+get '/events/:id/:name' do
+
+  @event = Event.find(params[:id].first)
+
+  erb :'events/show'
+
 end
 
 

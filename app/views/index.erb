@@ -1,9 +1,10 @@
-<h1>Dinr</h1>
+
+<h3>Hello <%= User.find(session[:user_id]).name %></h3>
 
 <ul>
   <% Event.all.each do |event| %>
     <li>
-      <h2><%= event.title %></h2>
+      <h2><a href="events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></h2>
     </li>
     <ul>
       <li>Location: <%= event.location %> </li>
@@ -17,3 +18,5 @@
 </ul>
 
 <a href='/events/new'>Want to become a Dinrsaur? Host a meal!</a>
+<br>
+<a href='/logout'>Logout</a>
