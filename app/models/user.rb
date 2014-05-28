@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 
+  has_many :events
+  has_many :commits
+  has_many :reviews
+
   validates :name, 
             presence: true
 

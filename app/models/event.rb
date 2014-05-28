@@ -1,5 +1,10 @@
 class Event < ActiveRecord::Base
 
+  has_many :commits
+  has_many :reviews
+  belongs_to :user
+  belongs_to :category
+
   validates :title, 
             presence: true
 
