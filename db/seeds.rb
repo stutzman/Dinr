@@ -39,4 +39,18 @@ User.create(
     )
 end
 
+Event.all.each do |event|
+  5.times do |i|
+
+    review = Review.create(
+      event_id: event.id,
+      user_id: User.all[i%User.count].id,
+      score: i,
+      comment: "Review comment #{i}"
+      )
+
+  end
+end
+
+
 
