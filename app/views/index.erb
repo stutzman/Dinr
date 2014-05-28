@@ -1,1 +1,19 @@
 <h1>Dinr</h1>
+
+<ul>
+  <% Event.all.each do |event| %>
+    <li>
+      <h2><%= event.title %></h2>
+    </li>
+    <ul>
+      <li>Location: <%= event.location %> </li>
+      <li>Attire <%= event.attire %> </li>
+      <li>Date: <%= event.event_date.to_formatted_s(:long) %> </li>
+      <li>Start: <%= event.start_time %></li>
+      <li>End: <%= event.end_time %></li>
+      <li>Description <%= event.food_bio %></li>
+    </ul>
+  <% end %>
+</ul>
+
+<a href='/events/new'>Want to become a Dinrsaur? Host a meal!</a>
