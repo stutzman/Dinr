@@ -61,7 +61,7 @@ get '/events/new' do
 end
 
 post '/events' do
-  @category = Category.new(
+  @category = Category.create(
     genre:        params[:category])
   @event = Event.new(
     title:        params[:title],
