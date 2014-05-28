@@ -1,12 +1,9 @@
 
-<h1>Dinr</h1>
+<h1>Dinr.</h1>
 
 <form class="box" action='/login' method='POST'>
-  <input type="text" name="email" placeholder="Email"></input>
+  <input type="email" name="email" placeholder="Email"></input>
   <input type="password" name="password" placeholder="password"></input>
   <input type="submit" value="Login"></input>
   <a href="/signup"> New User?</a>
-  <% if @user.errors.any? %>
-    <p>Either you email or password are incorrect, please try again</p>
-  <% end %>
 </form>

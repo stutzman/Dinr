@@ -51,3 +51,27 @@ post '/login' do
   end
 end
 
+get '/events/new' do
+  erb :'events/new'
+end
+
+post '/events' do
+  @event = Event.new(
+    title:        params[:title],
+    location:     params[:location],
+    guest_number: params[:guest_number],
+    attire:       params[:attire],
+    event_date:   params[:event_date],
+    start_time:   params[:start_time],
+    end_time:     params[:end_time],
+    food_bio:     params[:food_bio])
+
+  if @event.save
+    redirect '/'
+  else
+     erb :'events/new'
+  end
+end
+
+
+
