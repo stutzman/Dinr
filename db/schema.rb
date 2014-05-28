@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528190528) do
+ActiveRecord::Schema.define(version: 20140528204108) do
 
   create_table "categories", force: true do |t|
     t.string "genre"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140528190528) do
   create_table "commits", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
   end
 
   create_table "events", force: true do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 20140528190528) do
     t.string   "food_bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "category_id"
   end
 
   create_table "reviews", force: true do |t|
@@ -40,6 +44,8 @@ ActiveRecord::Schema.define(version: 20140528190528) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
   end
 
   create_table "users", force: true do |t|

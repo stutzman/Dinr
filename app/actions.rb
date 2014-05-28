@@ -61,6 +61,8 @@ get '/events/new' do
 end
 
 post '/events' do
+  @category = Category.new(
+    genre:        params[:category])
   @event = Event.new(
     title:        params[:title],
     location:     params[:location],
@@ -69,7 +71,9 @@ post '/events' do
     event_date:   params[:event_date],
     start_time:   params[:start_time],
     end_time:     params[:end_time],
-    food_bio:     params[:food_bio])
+    food_bio:     params[:food_bio],
+    category_id:  @category.id,
+    user_id:      session[:user_id])
 
   if @event.save
     redirect '/'

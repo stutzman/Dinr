@@ -10,3 +10,15 @@
   <li>End: <%= @event.end_time.to_formatted_s(:time) %></li>
   <li>Description <%= @event.food_bio %></li>
 </ul>
+
+<h2>Reviews</h2>
+<ul>
+  <% @event.user.reviews.each do |review| %>
+    <li><ul>
+      <li>Created at: <%= review.created_at %></li>
+      <li>Score: <%= review.score %></li>
+      <li>Comment: <%= review.comment %> </li>
+    </ul></li>
+
+  <% end %>
+</ul>
