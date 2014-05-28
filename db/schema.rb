@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528034822) do
+ActiveRecord::Schema.define(version: 20140528165242) do
 
   create_table "categories", force: true do |t|
-    t.string "type"
+    t.string "genre"
   end
 
   create_table "events", force: true do |t|

@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-  validates :type, 
+  validates :genre, 
             presence: true,
             length: { maximum: 30 }
 
