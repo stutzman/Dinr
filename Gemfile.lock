@@ -73,6 +73,7 @@ GEM
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
     tzinfo (0.3.39)
+    validates_email_format_of (1.5.3)
 
 PLATFORMS
   ruby
@@ -88,3 +89,4 @@ DEPENDENCIES
   sinatra-contrib
   sqlite3
   tux
+  validates_email_format_of

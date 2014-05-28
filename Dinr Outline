@@ -1,0 +1,15 @@
+As a Host I can:
+  1. Create an event
+  2. Set a time
+  3. Set a category
+  4. Set a cost
+  5. Set a location
+  6. Determine number of guests that are allowed to attend
+  7. Set attire
+  8. Write a food bio
+
+As an attendee I can
+  1. Choose an event to attend
+  2. I must pay the host's entrance fee
+  3. Filter events
+  

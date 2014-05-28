@@ -11,6 +11,8 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 
+gem 'validates_email_format_of'
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
