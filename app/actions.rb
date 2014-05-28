@@ -8,9 +8,9 @@ end
 
 get '/' do
   if session[:user_id]
-    erb :'auth/login'
+    erb :index
   else
-    erb :/
+    erb :'auth/login'
   end
 end
 
@@ -35,25 +35,8 @@ post '/signup' do
 end
 
 get '/login' do
+  @user = User.new
   erb :'auth/login'
-end
-
-post '/login' do
-  @new_user = User.new(
-    name:     params[:name],
-    password: params[:password],
-    email:    params[:email],
-    bio:      params[:bio]
-  )
-  @existing_user = User.where(name: @new_user.name).first
-
-  if @existing_user && (@existing_user.password == @new_user.password)
-    
-    session[:user_id] = @existing_user.id
-    redirect '/'
-  else
-    erb :'/login/login' 
-  end
 end
 
 post '/login' do
@@ -67,3 +50,4 @@ post '/login' do
     erb :'auth/login'
   end
 end
+
