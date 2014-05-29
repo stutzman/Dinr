@@ -85,10 +85,16 @@ end
 
 #Create some Commits
 
+Commit.create(user_id: 1, event_id: 1)
+Commit.create(user_id: 1, event_id: 3)
+Commit.create(user_id: 2, event_id: 3)
+Commit.create(user_id: 2, event_id: 4)
+
 Commit.create(user_id: 1, event_id: 6)
 Commit.create(user_id: 1, event_id: 9)
 Commit.create(user_id: 2, event_id: 7)
 Commit.create(user_id: 2, event_id: 9)
+
 
 
 
