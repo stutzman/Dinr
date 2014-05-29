@@ -31,6 +31,9 @@
       <li>End: <%= event.end_time.to_formatted_s(:time) %></li>
       <li>Description <%= event.food_bio %></li>
       <li>Category: <%= event.category.genre %></li>
+      <li>Dinrsaurs Attending: 
+        <%= event.attending_users.map{|user| user.name}.join(", ") %>
+      </li>
     </ul>
   <% end %>
 </ul>
