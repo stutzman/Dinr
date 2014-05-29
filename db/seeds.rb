@@ -37,7 +37,8 @@ User.create(
     end_time:     Time.at(628232400+i*10000),
     food_bio:     "Description #{i}",
     category_id:  Category.all[i%Category.count].id,
-    user_id:      User.all[i%User.count].id
+    user_id:      User.all[i%User.count].id,
+    img_url:      "public/images/events/img#{i+1}.jpg"
     )
 end
 
