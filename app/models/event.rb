@@ -29,4 +29,14 @@ class Event < ActiveRecord::Base
   validates :food_bio, 
             presence: true
 
+  def self.future_events
+    Event.where("event_date >= ?", Date.today)
+  end
+  def self.past_events
+    Event.where("event_date < ?", Date.today)
+  end
+
 end
+
+
+

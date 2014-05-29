@@ -2,7 +2,7 @@
 <h3>Hello <%= User.find(session[:user_id]).name %></h3>
 
 <ul>
-  <% Event.all.each do |event| %>
+  <% Event.future_events.each do |event| %>
     <li>
       <h2><a href="events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></h2>
     </li>
