@@ -1,9 +1,8 @@
-
+<img src="<%= @user.img_url %>">
 
 <h1><%= @user.name %></h1>
 
 <ul>
-  <li> <%= @user.img_url %> </li>
   <li>Average Event Score: <%=  %> </li>
   <li>About Me: <%= @user.bio %> </li>
   <li>City: <%= @user.city %> </li>
@@ -15,21 +14,21 @@
 <h2>Upcoming Events</h2>
 
 <ul>
-  <% @user.events.each do |e| %>
-    <li><ul>
-      <li> <%= e.event_id %></li>
-    </ul></li>
-<% end %>
+  <% @user.events.each do |event| %>
+    <li> <%= event.title %></li>
+  <% end %>
+</ul>
 
 <h3>Past Events</h3>
 
 <h4>Reviews</h4>
 <ul>
-  <% @event.user.reviews.each do |review| %>
-    <li><ul>
-      <li>Score: <%= review.score %></li>
-      <li>Comment: <%= review.comment %> </li>
-    </ul></li>
-
+  <% @user.events.each do |event| %>
+    <% event.reviews.each do |review| %>
+      <li><ul>
+        <li>Score: <%= review.score %></li>
+        <li>Comment: <%= review.comment %> </li>
+      </ul></li>
+    <% end %>
   <% end %>
 </ul>
