@@ -13,7 +13,7 @@ User.create(
   password: "password",
   email:    "Jamie.Woodbury@gmail.com",
   bio:      "Word.",
-  img_url:  "public/images/users/Jamie-Woodbury.JPG"
+  img_url:  "/images/users/Jamie-Woodbury.JPG"
 )
 
 User.create(
