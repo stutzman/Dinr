@@ -32,8 +32,13 @@ class Event < ActiveRecord::Base
   def self.future_events
     Event.where("event_date >= ?", Date.today)
   end
+
   def self.past_events
     Event.where("event_date < ?", Date.today)
+  end
+
+  def past?
+    self.event_date < Date.today
   end
 
 end

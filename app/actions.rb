@@ -112,6 +112,21 @@ post '/events' do
   end
 end
 
+post '/events/reviews/:event_id' do
+  @review = Review.new(
+    score:      params[:score],
+    comment:    params[:comment],
+    user_id:    session[:user_id],
+    event_id:   params[:event_id]
+    )
+
+  if @review.save
+
+  else
+    puts "Please enter a valid review!"
+  end
+end
+
 get '/events/:id/:name' do
 
   @event = Event.find(params[:id].first)
