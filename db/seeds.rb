@@ -12,14 +12,16 @@ User.create(
   name:     "Jamie Woodbury",
   password: "password",
   email:    "Jamie.Woodbury@gmail.com",
-  bio:      "Word."
+  bio:      "Word.",
+  img_url:  "public/images/users/Jamie-Woodbury.JPG"
 )
 
 User.create(
   name:     "Barrett Stutzman",
   password: "qwerty",
   email:    "barrett.stutzman@gmail.com",
-  bio:      "Sup?"
+  bio:      "Sup?",
+  img_url:  "public/images/users/Barrett-Stutzman.JPG"
 )
 
 #Create some events
