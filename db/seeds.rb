@@ -26,7 +26,27 @@ User.create(
 
 #Create some events
 
+#past events
+
 5.times do |i|
+  Event.create(
+    title:        "Event#{i}",
+    location:     "Loc#{i}",
+    guest_number: i,
+    attire:       ["formal", "casual"][i%2],
+    event_date:   Date.new(2013,i%12+1,i%30+1),
+    start_time:   Time.at(628232400+i*10000),
+    end_time:     Time.at(628232400+i*10000),
+    food_bio:     "Description #{i}",
+    category_id:  Category.all[i%Category.count].id,
+    user_id:      User.all[i%User.count].id,
+    img_url:      "/images/events/#{i+1}.jpg"
+    )
+end
+
+#future events
+
+(5..10).each do |i|
   Event.create(
     title:        "Event#{i}",
     location:     "Loc#{i}",
@@ -38,9 +58,11 @@ User.create(
     food_bio:     "Description #{i}",
     category_id:  Category.all[i%Category.count].id,
     user_id:      User.all[i%User.count].id,
-    img_url:      "/images/events/#{i+1}.jpg"
+    img_url:      "/images/events/#{(i+1)%5}.jpg"
     )
 end
+
+#Create some reviews
 
 Event.all.each do |event|
   5.times do |i|
