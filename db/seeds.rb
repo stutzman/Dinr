@@ -9,19 +9,25 @@ Category.create(genre: "Sushi")
 #create some users
 
 User.create(
-  name:     "Jamie Woodbury",
-  password: "password",
-  email:    "Jamie.Woodbury@gmail.com",
-  bio:      "Word.",
-  img_url:  "/images/users/Jamie-Woodbury.JPG"
+  name:           "Jamie Woodbury",
+  password:       "password",
+  email:          "Jamie.Woodbury@gmail.com",
+  bio:            "Word.",
+  img_url:        "/images/users/Jamie-Woodbury.JPG",
+  city:           "Vancouver",
+  state_province: "British Columbia",
+  country:        "Canada"
 )
 
 User.create(
-  name:     "Barrett Stutzman",
-  password: "qwerty",
-  email:    "barrett.stutzman@gmail.com",
-  bio:      "Sup?",
-  img_url:  "/images/users/Barrett-Stutzman.JPG"
+  name:           "Barrett Stutzman",
+  password:       "qwerty",
+  email:          "barrett.stutzman@gmail.com",
+  bio:            "Sup?",
+  img_url:        "/images/users/Barrett-Stutzman.JPG",
+  city:           "Dallas",
+  state_province: "Texas",
+  country:        "USA" 
 )
 
 #Create some events
