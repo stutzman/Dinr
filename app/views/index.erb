@@ -8,9 +8,9 @@
   <% Category.all.each do |category| %>
     <% genre = category.genre %>
     <% if @category.genre == genre %>
-      <option value="<%= genre %>" selected="selected"><%= genre + " (#{Event.where(category_id: category.id).count})"%>
+      <option value="<%= genre %>" selected="selected"><%= genre + " (#{Event.future_events.where(category_id: category.id).count})"%>
     <% else %>
-      <<option value="<%= genre %>"><%= genre  + " (#{Event.where(category_id: category.id).count})"%>
+      <option value="<%= genre %>"><%= genre  + " (#{Event.future_events.where(category_id: category.id).count})"%>
     <% end %>
     </option>
   <% end %>
