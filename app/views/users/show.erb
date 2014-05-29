@@ -14,7 +14,7 @@
 <h2>Upcoming Events</h2>
 
 <ul>
-  <% @user.events.each do |event| %>
+  <% @user.future_events.each do |event| %>
     <li> <%= event.title %></li>
   <% end %>
 </ul>
@@ -23,12 +23,11 @@
 
 <h4>Reviews</h4>
 <ul>
-  <% @user.events.each do |event| %>
-    <% event.reviews.each do |review| %>
-      <li><ul>
-        <li>Score: <%= review.score %></li>
-        <li>Comment: <%= review.comment %> </li>
-      </ul></li>
-    <% end %>
+  <% @user.reviews.each do |review| %>
+    <li><ul>
+      <li>Event: <%= review.event.title %></li>
+      <li>Score: <%= review.score %></li>
+      <li>Comment: <%= review.comment %> </li>
+    </ul></li>
   <% end %>
 </ul>

@@ -16,6 +16,16 @@ class User < ActiveRecord::Base
   validates :password, 
             presence: true
 
+  def future_events
+    self.events.where("event_date >= ?", Date.today)
+  end
+  def past_events
+    self.events.where("event_date < ?", Date.today)
+  end
+  def reviews
+    self.past_events.map!{|event| event.reviews}.flatten
+  end
+
   #CURRENTLY UNVALIDATED TO NOT IMPACT PREVIOUSLY ADDED DATABASE ITEMS
   # validates :city,
   #           presence: true
