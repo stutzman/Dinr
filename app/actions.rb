@@ -112,5 +112,11 @@ get '/events/:id/:name' do
 
 end
 
+get '/users/:id/:name' do
 
+  @user = User.find(params[:id].first)
+
+  erb :'users/show'
+
+end
 

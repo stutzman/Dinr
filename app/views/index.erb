@@ -8,6 +8,7 @@
     </li>
     <ul>
       <li>Location: <%= event.location %> </li>
+      <li>Host <a href="users/<%= "#{event.user.id}/#{URI.escape(event.user.name)}" %>"> <%= event.user.name %> </a> </li>
       <li>Attire <%= event.attire %> </li>
       <li>Date: <%= event.event_date.strftime("%d %b %y") %> </li>
       <li>Start: <%= event.start_time.to_formatted_s(:time) %></li>

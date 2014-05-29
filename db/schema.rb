@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528204108) do
+ActiveRecord::Schema.define(version: 20140529004827) do
 
   create_table "categories", force: true do |t|
     t.string "genre"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 20140528204108) do
     t.string "password"
     t.string "bio"
     t.string "img_url"
+    t.string "city"
+    t.string "state_province"
+    t.string "country"
   end
 
 end

@@ -6,15 +6,20 @@
   <li> <%= @user.img_url %> </li>
   <li>Average Event Score: <%=  %> </li>
   <li>About Me: <%= @user.bio %> </li>
+  <li>City: <%= @user.city %> </li>
+  <li>State/Province : <%= @user.state_province %> </li>
+  <li>Country: <%= @user.country %> </li>
+  <li>About Me: <%= @user.bio %> </li>
 </ul>
 
 <h2>Upcoming Events</h2>
 
 <ul>
-  <% @user.event.each do |e| %>
+  <% @user.events.each do |e| %>
     <li><ul>
       <li> <%= e.event_id %></li>
     </ul></li>
+<% end %>
 
 <h3>Past Events</h3>
 
