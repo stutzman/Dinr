@@ -112,6 +112,13 @@ post '/events' do
   end
 end
 
+post '/events/attend/:event_id' do
+  Commit.create(user_id:  session[:user_id],
+                event_id: params[:event_id]
+                )
+  redirect '/'
+end
+
 get '/events/:id/:name' do
 
   @event = Event.find(params[:id].first)

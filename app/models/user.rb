@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   def reviews
     self.past_events.map!{|event| event.reviews}.flatten
   end
+  def attending?(event_id)
+    self.attending_events.all.include?(Event.find(event_id))
+  end
 
   validates :city,
             presence: true

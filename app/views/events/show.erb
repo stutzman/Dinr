@@ -4,7 +4,12 @@
 
 <img src="<%= @event.img_url %>">
 
-<ul>
+<% unless User.find(session[:user_id]).attending?(@event.id) %>
+  <form action="/events/attend/<%= @event.id %>" method="post">
+    <button name="attend" type="submit" value="true">Crash this Dinr</button>
+  </form>
+<% end %>
+
   <li>Location: <%= @event.location %> </li>
   <li>Attire <%= @event.attire %> </li>
   <li>Date: <%= @event.event_date.strftime("%d %b %y") %> </li>
