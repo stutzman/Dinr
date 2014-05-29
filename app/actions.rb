@@ -20,20 +20,24 @@ end
 
 post '/signup' do
 
-  img_url = '/images/users/' + params[:img][:filename]
   @user = User.new(
     name:     params[:name],
     password: params[:password],
     email:    params[:email],
     bio:      params[:bio],
-    img_url:  img_url
   )
 
-  File.open('public' + img_url, "w") do |f|
-    f.write(params[:img][:tempfile].read)
-  end
-
   if @user.save
+
+    img_url = "/images/users/#{@user.id}.jpg"
+
+    File.open('public' + img_url, "w") do |f|
+      f.write(params[:img][:tempfile].read)
+    end
+
+    @user.img_url = img_url
+    @user.save
+
     session[:user_id] = @user.id
     redirect '/'
   else
@@ -69,10 +73,6 @@ end
 
 post '/events' do
 
-  File.open('public/images/events/' + params[:img][:filename], "w") do |f|
-    f.write(params[:img][:tempfile].read)
-  end
-
   @category = Category.create(
     genre:        params[:category])
   @event = Event.new(
@@ -88,6 +88,16 @@ post '/events' do
     user_id:      session[:user_id])
 
   if @event.save
+
+    img_url = "/images/events/#{@event.id}.jpg"
+
+    File.open('public' + img_url, "w") do |f|
+      f.write(params[:img][:tempfile].read)
+    end
+
+    @event.img_url = img_url
+    @event.save
+
     redirect '/'
   else
      erb :'events/new'

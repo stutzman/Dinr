@@ -38,7 +38,7 @@ User.create(
     food_bio:     "Description #{i}",
     category_id:  Category.all[i%Category.count].id,
     user_id:      User.all[i%User.count].id,
-    img_url:      "/images/events/img#{i+1}.jpg"
+    img_url:      "/images/events/#{i+1}.jpg"
     )
 end
 
