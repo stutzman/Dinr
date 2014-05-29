@@ -13,7 +13,7 @@
 
 <h2>Reviews</h2>
 <ul>
-  <% @event.user.reviews.each do |review| %>
+  <% @event.reviews.each do |review| %>
     <li><ul>
       <li>Created at: <%= review.created_at %></li>
       <li>Score: <%= review.score %></li>

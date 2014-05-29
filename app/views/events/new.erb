@@ -1,6 +1,6 @@
 
 
-<form class="box" action='/events' method='POST'>
+<form class="box" action='/events' method='POST' enctype='multipart/form-data'>
   <input type="text" name="title" placeholder="Title">
   </input><br>
   <input type="text" name="location" placeholder="location">
@@ -18,5 +18,8 @@
   </input><br>
   End Time: <input type="time" name="end_time">
   </input><br>
+    <br>
+  <input type="file" name="img"></input>
+  <br>
   <input type="submit" value="Host!"></input>
 </form>

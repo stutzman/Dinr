@@ -1,12 +1,21 @@
 
-<form class="box" action='/signup' method='POST'>
+<form class="box" action='/signup' method='POST' enctype='multipart/form-data'>
   <input type="text" name="name" placeholder="name"></input>
+  <br>
   <input type="email" name="email" placeholder="email"></input>
+  <br>
   <input type="password" name="password" placeholder="password"></input>
+  <br>
   <input type="text" name="city" placeholder="city"></input>
+  <br>
   <input type="text" name="state or province" placeholder="state or province"></input>
+  <br>
   <input type="text" name="country" placeholder="country"></input>
+  <br>
   <input type="text" name="bio" placeholder="Tell us about yourself..."></input>
+  <br>
+  <input type="file" name="img"></input>
+  <br>
   <input type="submit" value="Dinr up!"></input>
   <a href="/"> Already have an account?</a>
 </form>

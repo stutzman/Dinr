@@ -15,10 +15,11 @@
 <h2>Upcoming Events</h2>
 
 <ul>
-  <% @user.event.each do |e| %>
+  <% @user.events.each do |e| %>
     <li><ul>
       <li> <%= e.event_id %></li>
     </ul></li>
+<% end %>
 
 <h3>Past Events</h3>
 

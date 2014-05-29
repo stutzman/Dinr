@@ -12,14 +12,16 @@ User.create(
   name:     "Jamie Woodbury",
   password: "password",
   email:    "Jamie.Woodbury@gmail.com",
-  bio:      "Word."
+  bio:      "Word.",
+  img_url:  "public/images/users/Jamie-Woodbury.JPG"
 )
 
 User.create(
   name:     "Barrett Stutzman",
   password: "qwerty",
   email:    "barrett.stutzman@gmail.com",
-  bio:      "Sup?"
+  bio:      "Sup?",
+  img_url:  "public/images/users/Barrett-Stutzman.JPG"
 )
 
 #Create some events
@@ -35,8 +37,23 @@ User.create(
     end_time:     Time.at(628232400+i*10000),
     food_bio:     "Description #{i}",
     category_id:  Category.all[i%Category.count].id,
-    user_id:      User.all[i%User.count].id
+    user_id:      User.all[i%User.count].id,
+    img_url:      "public/images/events/img#{i+1}.jpg"
     )
 end
+
+Event.all.each do |event|
+  5.times do |i|
+
+    review = Review.create(
+      event_id: event.id,
+      user_id: User.all[i%User.count].id,
+      score: i,
+      comment: "Review comment #{i}"
+      )
+
+  end
+end
+
 
 

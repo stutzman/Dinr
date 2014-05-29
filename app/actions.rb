@@ -26,6 +26,10 @@ post '/signup' do
     bio:      params[:bio]
   )
 
+  File.open('public/images/users/' + params[:img][:filename], "w") do |f|
+    f.write(params[:img][:tempfile].read)
+  end
+
   if @user.save
     session[:user_id] = @user.id
     redirect '/'
@@ -61,6 +65,11 @@ get '/events/new' do
 end
 
 post '/events' do
+
+  File.open('public/images/events/' + params[:img][:filename], "w") do |f|
+    f.write(params[:img][:tempfile].read)
+  end
+
   @category = Category.create(
     genre:        params[:category])
   @event = Event.new(
@@ -90,5 +99,11 @@ get '/events/:id/:name' do
 
 end
 
+get '/users/:id/:name' do
 
+  @user = User.find(params[:id].first)
+
+  erb :'users/show'
+
+end
 
