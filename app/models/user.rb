@@ -10,20 +10,21 @@ class User < ActiveRecord::Base
   validates :email, 
             presence: true, 
             uniqueness: true
-            #TO DO: VALIDATE E-MAIL
-            #:email_format => {:message => 'is not looking good'}
+  
+
+  validates_format_of :email, 
+  with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
   
   validates :password, 
             presence: true
 
-  #CURRENTLY UNVALIDATED TO NOT IMPACT PREVIOUSLY ADDED DATABASE ITEMS
-  # validates :city,
-  #           presence: true
+  validates :city,
+            presence: true
 
-  # validates :state_province,
-  #           presence: true
+  validates :state_province,
+            presence: true
 
-  # validates :country,
-  #           presence: true
+  validates :country,
+            presence: true
 
 end
