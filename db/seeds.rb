@@ -83,5 +83,12 @@ Event.all.each do |event|
   end
 end
 
+#Create some Commits
+
+Commit.create(user_id: 1, event_id: 6)
+Commit.create(user_id: 1, event_id: 9)
+Commit.create(user_id: 2, event_id: 7)
+Commit.create(user_id: 2, event_id: 9)
+
 
 

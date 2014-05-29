@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 
   has_many :commits
   has_many :reviews
+  has_many :attending_users, through: :commits, source: :user
   belongs_to :user
   belongs_to :category
 
