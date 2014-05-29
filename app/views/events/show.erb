@@ -21,14 +21,22 @@
   </li>
 </ul>
 
-<h2>Reviews</h2>
-<ul>
-  <% @event.reviews.each do |review| %>
-    <li><ul>
-      <li>Created at: <%= review.created_at %></li>
-      <li>Score: <%= review.score %></li>
-      <li>Comment: <%= review.comment %> </li>
-    </ul></li>
+  <% if @event.past? %>
 
+    <h2>Reviews</h2>
+    <ul>
+      <% @event.reviews.each do |review| %>
+        <li><ul>
+          <li>Score: <%= review.score %></li>
+          <li>Comment: <%= review.comment %> </li>
+          <li>Created at: <%= review.created_at %></li>
+        </ul></li>
+      <% end %>
+    <h3>Leave a Review</h3>
+    <form class="box" action="/events/reviews/<%= @event.id %>" method='post'>
+      <input type="number" min="1" max="10" step="0.5" name ="score" placeholder="rate from 1 to 10"></input>
+      <input type="text" name="comment" placeholder="tell 'em how you really feel"></input>
+      <input type="submit" value="Submit Review!"></input>
+    </form>
   <% end %>
 </ul>
