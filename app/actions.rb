@@ -26,6 +26,10 @@ post '/signup' do
     bio:      params[:bio]
   )
 
+  File.open('public/images/users/' + params[:img][:filename], "w") do |f|
+    f.write(params[:img][:tempfile].read)
+  end
+  
   if @user.save
     session[:user_id] = @user.id
     redirect '/'
