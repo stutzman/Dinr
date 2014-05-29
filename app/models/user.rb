@@ -16,4 +16,14 @@ class User < ActiveRecord::Base
   validates :password, 
             presence: true
 
+  #CURRENTLY UNVALIDATED TO NOT IMPACT PREVIOUSLY ADDED DATABASE ITEMS
+  # validates :city,
+  #           presence: true
+
+  # validates :state_province,
+  #           presence: true
+
+  # validates :country,
+  #           presence: true
+
 end
