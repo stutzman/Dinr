@@ -37,6 +37,8 @@
         <li><ul>
           <li>Score: <%= review.score %></li>
           <li>Comment: <%= review.comment %> </li>
+          <li>By: <a href="/users/<%= "#{review.user.id}/#{URI.escape(review.user.name)}" %>">
+          <%= review.user.name %> </a> </li>
           <li>Created at: <%= review.created_at %></li>
         </ul></li>
       <% end %>
