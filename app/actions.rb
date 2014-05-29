@@ -19,14 +19,17 @@ get '/signup' do
 end
 
 post '/signup' do
+
+  img_url = '/images/users/' + params[:img][:filename]
   @user = User.new(
     name:     params[:name],
     password: params[:password],
     email:    params[:email],
-    bio:      params[:bio]
+    bio:      params[:bio],
+    img_url:  img_url
   )
 
-  File.open('public/images/users/' + params[:img][:filename], "w") do |f|
+  File.open('public' + img_url, "w") do |f|
     f.write(params[:img][:tempfile].read)
   end
 
