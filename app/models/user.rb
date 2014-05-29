@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :events
+  has_many :attending_events, through: :commits, source: :event
   has_many :commits
   has_many :reviews
 
