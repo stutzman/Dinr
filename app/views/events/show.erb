@@ -10,6 +10,9 @@
   </form>
 <% end %>
 
+  <li>Host: 
+    <a href="/users/<%= "#{@event.user.id}/#{URI.escape(@event.user.name)}" %>"> 
+    <%= @event.user.name %> </a> </li>
   <li>Location: <%= @event.location %> </li>
   <li>Attire <%= @event.attire %> </li>
   <li>Date: <%= @event.event_date.strftime("%d %b %y") %> </li>
@@ -17,7 +20,12 @@
   <li>End: <%= @event.end_time.to_formatted_s(:time) %></li>
   <li>Description <%= @event.food_bio %></li>
   <li>Dinrsaurs Attending: 
-    <%= @event.attending_users.map{|user| user.name}.join(", ") %>
+    <% @event.attending_users.each do |user| %>
+      <a href="/users/<%= "#{user.id}/#{URI.escape(user.name)}" %>">
+        <%= user.name %>
+      </a>
+      , 
+    <% end %>
   </li>
 </ul>
 

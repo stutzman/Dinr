@@ -13,21 +13,30 @@
 
 <h2>Upcoming Events</h2>
 
-<ul>
-  <% @user.future_events.each do |event| %>
-    <li> <%= event.title %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @user.future_events.each do |event| %>
+      <li> <a href="/events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></li>
+    <% end %>
+  </ul>
 
-<h3>Past Events</h3>
+<h2>Past Events</h2>
 
-<h4>Reviews</h4>
+  <ul>
+    <% @user.past_events.each do |event| %>
+      <li> <a href="/events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></li>
+    <% end %>
+  </ul>
+
+
+<h2>Reviews</h2>
 <ul>
   <% @user.reviews.each do |review| %>
     <li><ul>
-      <li>Event: <%= review.event.title %></li>
+      <li><a href="/events/<%= "#{review.event.id}/#{URI.escape(review.event.title)}" %>"><%= review.event.title %></a></li>
       <li>Score: <%= review.score %></li>
       <li>Comment: <%= review.comment %> </li>
+      <li>By: <a href="/users/<%= "#{review.user.id}/#{URI.escape(review.user.name)}" %>">
+          <%= review.user.name %> </a> </li>
     </ul></li>
   <% end %>
 </ul>

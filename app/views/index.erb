@@ -36,7 +36,12 @@
         <li>Description <%= event.food_bio %></li>
         <li>Category: <%= event.category.genre %></li>
         <li>Dinrsaurs Attending: 
-          <%= event.attending_users.map{|user| user.name}.join(", ") %>
+          <% event.attending_users.each do |user| %>
+          <a href="/users/<%= "#{user.id}/#{URI.escape(user.name)}" %>">
+          <%= user.name %>
+          </a>
+            , 
+          <% end %>
         </li>
       </ul>
     </li>
