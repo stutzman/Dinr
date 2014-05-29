@@ -1,8 +1,24 @@
 
 <h3>Hello <%= User.find(session[:user_id]).name %></h3>
 
+<form action="/" method="get" id = "filter-events">
+  Category:
+  <select name="category" form="filter-events" onchange="this.form.submit()">
+  <option value ="">all</option>
+  <% Category.all.each do |category| %>
+    <% genre = category.genre %>
+    <% if @category.genre == genre %>
+      <option value="<%= genre %>" selected="selected"><%= genre %>
+    <% else %>
+      <<option value="<%= genre %>"><%= genre %>
+    <% end %>
+    </option>
+  <% end %>
+  </select>
+</form>
+
 <ul>
-  <% Event.future_events.each do |event| %>
+  <% @events.each do |event| %>
     <li>
       <h2><a href="events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></h2>
     </li>

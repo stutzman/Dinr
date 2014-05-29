@@ -7,6 +7,14 @@ helpers do
 end
 
 get '/' do
+  genre = params[:category]
+  @events = Event.future_events
+  @category = Category.new
+  if genre && !genre.empty?
+    @category = Category.where(genre: genre).first
+    @events = @events.where(category_id: @category.id)
+  end
+
   if session[:user_id]
     erb :index
   else
