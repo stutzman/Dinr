@@ -21,7 +21,7 @@ User.create(
   password: "qwerty",
   email:    "barrett.stutzman@gmail.com",
   bio:      "Sup?",
-  img_url:  "public/images/users/Barrett-Stutzman.JPG"
+  img_url:  "/images/users/Barrett-Stutzman.JPG"
 )
 
 #Create some events
@@ -38,7 +38,7 @@ User.create(
     food_bio:     "Description #{i}",
     category_id:  Category.all[i%Category.count].id,
     user_id:      User.all[i%User.count].id,
-    img_url:      "public/images/events/img#{i+1}.jpg"
+    img_url:      "/images/events/#{i+1}.jpg"
     )
 end
 
