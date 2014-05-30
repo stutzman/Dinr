@@ -1,6 +1,10 @@
 
 <h3>Hello <%= User.find(session[:user_id]).name %></h3>
 
+<a href='/events/new'>Want to become a Dinrsaur? Host a meal!</a>
+<br>
+<a href='/logout'>Logout</a>
+
 <form action="/" method="get" id = "filter-events">
   Category:
   <select name="category" form="filter-events" onchange="this.form.submit()">
@@ -17,37 +21,38 @@
   </select>
 </form>
 
-<ul>
+  <link rel="stylesheet" href="/stylesheets/grid.css">
+
+<div class="row container-fluid">
   <% @events.each do |event| %>
-    <li>
-      <h2><a href="events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></h2>
-      <% unless User.find(session[:user_id]).attending?(event.id) %>
-        <form action="events/attend/<%= event.id %>" method="post">
-          <button name="attend" type="submit" value="true">Crash this Dinr</button>
-        </form>
-      <% end %>
-      <ul>
-        <li>Location: <%= event.location %> </li>
-        <li>Host <a href="users/<%= "#{event.user.id}/#{URI.escape(event.user.name)}" %>"> <%= event.user.name %> </a> </li>
-        <li>Attire <%= event.attire %> </li>
-        <li>Date: <%= event.event_date.strftime("%d %b %y") %> </li>
-        <li>Start: <%= event.start_time.to_formatted_s(:time) %></li>
-        <li>End: <%= event.end_time.to_formatted_s(:time) %></li>
-        <li>Description <%= event.food_bio %></li>
-        <li>Category: <%= event.category.genre %></li>
-        <li>Dinrsaurs Attending: 
-          <% event.attending_users.each do |user| %>
-          <a href="/users/<%= "#{user.id}/#{URI.escape(user.name)}" %>">
-          <%= user.name %>
-          </a>
-            , 
+      <div class="col-xs-12 col-sm-6 col-md-3 box">
+        <div class="inner-box">
+          <h2><a href="events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></h2>
+          <% unless User.find(session[:user_id]).attending?(event.id) %>
+            <form action="events/attend/<%= event.id %>" method="post">
+              <button name="attend" type="submit" value="true">Crash this Dinr</button>
+            </form>
           <% end %>
-        </li>
-      </ul>
+          <ul>
+            <li>Location: <%= event.location %> </li>
+            <li>Host <a href="users/<%= "#{event.user.id}/#{URI.escape(event.user.name)}" %>"> <%= event.user.name %> </a> </li>
+            <li>Attire <%= event.attire %> </li>
+            <li>Date: <%= event.event_date.strftime("%d %b %y") %> </li>
+            <li>Start: <%= event.start_time.to_formatted_s(:time) %></li>
+            <li>End: <%= event.end_time.to_formatted_s(:time) %></li>
+            <li>Description <%= event.food_bio %></li>
+            <li>Category: <%= event.category.genre %></li>
+            <li>Dinrsaurs Attending: 
+              <% event.attending_users.each do |user| %>
+              <a href="/users/<%= "#{user.id}/#{URI.escape(user.name)}" %>">
+              <%= user.name %>
+              </a>
+                , 
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
     </li>
   <% end %>
-</ul>
-
-<a href='/events/new'>Want to become a Dinrsaur? Host a meal!</a>
-<br>
-<a href='/logout'>Logout</a>
+</div>

@@ -1,0 +1,13 @@
+body{
+  background-color: #E2E1DD
+}
+
+.box{
+  padding: 0;
+}
+.inner-box{
+  margin: 10px;
+  box-shadow: 2px 2px 10px #bbbbbb;
+  background-color: #ffffff;
+  height: 300px;
+}
