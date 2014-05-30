@@ -1,0 +1,7 @@
+body {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background-size: cover;
+  background-image: url('/images/cutting_board_vegetables.jpg')
+}
