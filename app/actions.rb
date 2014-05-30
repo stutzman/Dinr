@@ -150,7 +150,7 @@ get '/users/:id/:name' do
 
 end
 
-get '/grid' do
+get '/nav' do
   erb :grid
 end
 
