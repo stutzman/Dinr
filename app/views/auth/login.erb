@@ -1,10 +1,31 @@
 <link rel="stylesheet" href="/stylesheets/login.css">
 
-<form class="box" action='/login' method='POST'>
+<!-- <form class="box" action='/login' method='POST'>
   <input type="email" name="email" placeholder="Email"></input>
   <input type="password" name="password" placeholder="password"></input>
   <button type="submit" class="btn btn-primary btn-info">
     <i class="glyphicon glyphicon-home"></i> Login
   </button>
   <a href="/signup" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-user"></span> New User</a>
-</form>
+</form> -->
+<div class="login-form">
+  <form class="form-inline" role="form" action='/login' method='POST'>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputEmail2">Email address</label>
+      <input type="email" name="email"class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputPassword2">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+    </div>
+    <!-- <div class="checkbox">
+      <label>
+        <input type="checkbox"> Remember me
+      </label>
+    </div> -->
+    <button type="submit" class="btn btn-primary btn-info">
+      <i class="glyphicon glyphicon-home"></i> Login
+    </button>
+    <a href="/signup" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-user"></span> New User</a>
+  </form>
+</div>
