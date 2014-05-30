@@ -43,7 +43,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <img class="user_img img-rounded" src=<%= User.first.img_url %> alt="...">
+          <img class="user_img img-rounded" src=<%= User.find(session[:user_id]).img_url %> alt="...">
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= User.find(session[:user_id]).name %><b class="caret"></b></a>
@@ -68,7 +68,7 @@
               </header>
               <% unless User.find(session[:user_id]).attending?(event.id) %>
                 <form class="attend-form" action="events/attend/<%= event.id %>" method="post">
-                  <button name="attend" type="submit" value="true">Crash this Dinr</button>
+                  <button class="btn btn-default" name="attend" type="submit" value="true">Crash this Dinr</button>
                 </form>
               <% end %>
             </div>
@@ -97,10 +97,91 @@
   <% end %>
 </div>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+
+<!-- Event Modal -->
+
+
+<% @event=Event.find(10) %>
+
+<div class="modal fade bs-example-modal-lg event-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      ...
+      <div class="modal-img-box" style="background-image: url(<%= @event.img_url %>)">
+        <header class="event-thumb-header">
+          <h3><%= @event.title %></h3>
+        </header>
+      </div>
+      <footer class="event-thumb-about row container-fluid modal-image-footer">
+        <a href="/users/<%= "#{@event.user.id}/#{URI.escape(@event.user.name)}" %>"  class="thumbnail col-xs-6 col-sm-3 col-md-2">
+          <img src=<%= @event.user.img_url %> alt="...">
+        </a>
+        <div class="col-xs-6 col-sm-5 col-md-7">
+          <h3>Host Bio</h3>
+          <%= @event.user.bio %>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <% unless User.find(session[:user_id]).attending?(@event.id) %>
+            <form class="modal-attend-form" action="events/attend/<%= @event.id %>" method="post">
+              <button class="btn btn-default btn-lg btn-block modal-attend-button" name="attend" type="submit" value="true">Crash this Dinr</button>
+            </form>
+          <% end %>
+        </div>
+      </footer>
+      <div class="row container-fluid modal-image-footer">
+        <div class="col-xs-6 col-sm-4 col-md-4 modal-event-stats">
+          <h3>The TL;DR</h3>
+          <ul>
+            <li>Host: 
+              <a href="/users/<%= "#{@event.user.id}/#{URI.escape(@event.user.name)}" %>"> 
+              <%= @event.user.name %> </a> </li>
+            <li>Location: <%= @event.location %> </li>
+            <li>Attire <%= @event.attire %> </li>
+            <li>Date: <%= @event.event_date.strftime("%d %b %y") %> </li>
+            <li>Start: <%= @event.start_time.to_formatted_s(:time) %></li>
+            <li>End: <%= @event.end_time.to_formatted_s(:time) %></li>
+            <li>Description <%= @event.food_bio %></li>
+            <li>Dinrsaurs Attending: 
+              <% @event.attending_users.each do |user| %>
+                <a href="/users/<%= "#{user.id}/#{URI.escape(user.name)}" %>">
+                  <%= user.name %>
+                </a>
+                , 
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-6 col-sm-8 col-md-8 modal-event-description">
+          <h3>What's cookin'?</h3>
+          <%= @event.food_bio %>
+        </div>
+      </div>
+      <div>
+        <% if @event.past? %>
+        <h3>Reviews</h3>
+          <ul>
+            <% @event.reviews.each do |review| %>
+              <li><ul>
+                <li>Score: <%= review.score %></li>
+                <li>Comment: <%= review.comment %> </li>
+                <li>By: <a href="/users/<%= "#{review.user.id}/#{URI.escape(review.user.name)}" %>">
+                <%= review.user.name %> </a> </li>
+                <li>Created at: <%= review.created_at %></li>
+              </ul></li>
+            <% end %>
+            <li>
+              <% if User.find(session[:user_id]).attending?(@event.id) %>
+                <h3>Leave a Review</h3>
+                <form class="box" action="/events/reviews/<%= @event.id %>" method='post'>
+                  <input type="number" min="1" max="10" step="0.5" name ="score" placeholder="rate from 1 to 10"></input>
+                  <input type="text" name="comment" placeholder="tell 'em how you really feel"></input>
+                  <input type="submit" value="Submit Review!"></input>
+                </form>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

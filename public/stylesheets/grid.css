@@ -11,11 +11,10 @@ body{
   background-color: #ffffff;
 }
 
-/*.inner-box:hover{
-  margin: 5px;
-  transition: margin 0.25s;
-  box-shadow: 3px 3px 10px #bbbbbb;
-}*/
+.inner-box:hover{
+  transition: box-shadow 0.25s;
+  box-shadow: 4px 4px 10px #777777;
+}
 
 .event-thumb-header{
   background-color: rgba(255, 255, 255, 0.7);
@@ -36,6 +35,7 @@ footer a{
   position: absolute;
   bottom: 0;
   right: 0;
+  margin: 5px;
 }
 
 .img-box{
@@ -45,4 +45,64 @@ footer a{
   background-position: center;
   position: relative;
   cursor: pointer;
+}
+
+.modal-content{
+  border-radius: 10px !important;
+  overflow: hidden
+}
+
+.modal-img-box{
+  height: 350px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.modal-attend-form{
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.modal-attend-button{
+  height: 80px;
+}
+
+.modal-image-footer{
+  display: table;
+}
+
+.modal-event-stats{
+  text-align: left;
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  height: inherit;
+  background-color: #808285;
+  color: #FDFDFD !important;
+}
+header h3{
+  text-align: center;
+}
+.modal h3{
+  text-align: left;
+}
+.modal-event-stats h3{
+  margin: 10px !important;
+  color: #FDFDFD !important;
+}
+
+.modal-event-stats a{
+  margin: 10px !important;
+  color: #FDFDFD !important;
+}
+
+.modal-event-description{
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  background-color: #E2E1DD;
 }
