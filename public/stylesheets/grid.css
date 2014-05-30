@@ -11,6 +11,12 @@ body{
   background-color: #ffffff;
 }
 
+/*.inner-box:hover{
+  margin: 5px;
+  transition: margin 0.25s;
+  box-shadow: 3px 3px 10px #bbbbbb;
+}*/
+
 .event-thumb-header{
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -19,8 +25,6 @@ h3{
   margin: 0;
   width: 100%;
   text-align: center;
-}
-h3 a{
   color: #58595B !important;
 }
 
@@ -39,5 +43,6 @@ footer a{
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  position: relative
+  position: relative;
+  cursor: pointer;
 }

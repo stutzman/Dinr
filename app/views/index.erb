@@ -60,37 +60,47 @@
 <div class="row container-fluid">
   <% @events.each do |event| %>
       <div class="col-xs-12 col-sm-6 col-md-3 box">
-        <div class="inner-box">
-          <div class="img-box" style="background-image: url(<%= event.img_url %>)">
-            <header class="event-thumb-header">
-              <h3><a href="events/<%= "#{event.id}/#{URI.escape(event.title)}" %>"><%= event.title %></a></h3>
-            </header>
-            <% unless User.find(session[:user_id]).attending?(event.id) %>
-              <form class="attend-form" action="events/attend/<%= event.id %>" method="post">
-                <button name="attend" type="submit" value="true">Crash this Dinr</button>
-              </form>
-            <% end %>
-          </div>
-          <footer class="event-thumb-about row container-fluid">
-            <a href="/users/<%= "#{event.user.id}/#{URI.escape(event.user.name)}" %>"  class="thumbnail col-xs-3 col-sm-3 col-md-3">
-              <img src=<%= event.user.img_url %> alt="...">
+          <div class="inner-box">
+            <a data-toggle="modal" data-target=".bs-example-modal-lg">
+            <div class="img-box" style="background-image: url(<%= event.img_url %>)">
+              <header class="event-thumb-header">
+                <h3><%= event.title %></h3>
+              </header>
+              <% unless User.find(session[:user_id]).attending?(event.id) %>
+                <form class="attend-form" action="events/attend/<%= event.id %>" method="post">
+                  <button name="attend" type="submit" value="true">Crash this Dinr</button>
+                </form>
+              <% end %>
+            </div>
             </a>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <ul class="list-unstyled">
-                <li>
-                  <%= event.category.genre %>
-                </li>
-                <li>
-                  <%= event.location %>
-                </li>
-              </ul>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3">
-              <%= event.event_date.strftime("%d %b") %>
-            </div>
-          </footer>
-        </div>
+            <footer class="event-thumb-about row container-fluid">
+              <a href="/users/<%= "#{event.user.id}/#{URI.escape(event.user.name)}" %>"  class="thumbnail col-xs-3 col-sm-3 col-md-3">
+                <img src=<%= event.user.img_url %> alt="...">
+              </a>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <ul class="list-unstyled">
+                  <li>
+                    <%= event.category.genre %>
+                  </li>
+                  <li>
+                    <%= event.location %>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <%= event.event_date.strftime("%d %b") %>
+              </div>
+            </footer>
+          </div>
       </div>
     </li>
   <% end %>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
 </div>
