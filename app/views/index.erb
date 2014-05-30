@@ -43,7 +43,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <img class="user_img img-rounded" src=<%= User.first.img_url %> alt="...">
+          <img class="user_img img-rounded" src=<%= User.find(session[:user_id]).img_url %> alt="...">
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= User.find(session[:user_id]).name %><b class="caret"></b></a>
@@ -68,7 +68,7 @@
               </header>
               <% unless User.find(session[:user_id]).attending?(event.id) %>
                 <form class="attend-form" action="events/attend/<%= event.id %>" method="post">
-                  <button name="attend" type="submit" value="true">Crash this Dinr</button>
+                  <button class="btn btn-default" name="attend" type="submit" value="true">Crash this Dinr</button>
                 </form>
               <% end %>
             </div>
@@ -97,10 +97,39 @@
   <% end %>
 </div>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<% @event=Event.find(10) %>
+
+<div class="modal fade bs-example-modal-lg event-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      ...
+      <div class="modal-img-box" style="background-image: url(<%= @event.img_url %>)">
+        <header class="event-thumb-header">
+          <h3><%= @event.title %></h3>
+        </header>
+      </div>
+      <footer class="event-thumb-about row container-fluid modal-image-footer">
+        <a href="/users/<%= "#{@event.user.id}/#{URI.escape(@event.user.name)}" %>"  class="thumbnail col-xs-6 col-sm-3 col-md-2">
+          <img src=<%= @event.user.img_url %> alt="...">
+        </a>
+        <div class="col-xs-6 col-sm-5 col-md-7">
+          <%= @event.user.bio %>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <% unless User.find(session[:user_id]).attending?(@event.id) %>
+            <form class="modal-attend-form" action="events/attend/<%= @event.id %>" method="post">
+              <button class="btn btn-default btn-lg btn-block modal-attend-button" name="attend" type="submit" value="true">Crash this Dinr</button>
+            </form>
+          <% end %>
+        </div>
+      </footer>
+      <div class="row container-fluid modal-image-footer">
+        <div class="col-xs-6 col-sm-4 col-md-4 modal-event-stats">
+          <h3>What's cookin'?</h3>
+        </div>
+        <div class="col-xs-6 col-sm-8 col-md-8 modal-event-description">
+          <%= @event.food_bio %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
