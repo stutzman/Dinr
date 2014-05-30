@@ -1,21 +1,54 @@
+<link rel="stylesheet" href="/stylesheets/signup.css">
 
-<form class="box" action='/signup' method='POST' enctype='multipart/form-data'>
-  <input type="text" name="name" placeholder="name"></input>
-  <br>
-  <input type="email" name="email" placeholder="email"></input>
-  <br>
-  <input type="password" name="password" placeholder="password"></input>
-  <br>
-  <input type="text" name="city" placeholder="city"></input>
-  <br>
-  <input type="text" name="state or province" placeholder="state or province"></input>
-  <br>
-  <input type="text" name="country" placeholder="country"></input>
-  <br>
-  <input type="text" name="bio" placeholder="Tell us about yourself..."></input>
-  <br>
-  <input type="file" name="img"></input>
-  <br>
-  <input type="submit" value="Dinr up!"></input>
-  <a href="/"> Already have an account?</a>
-</form>
+<div class="sign-up form">
+  <form class="box" action='/signup' method='POST' enctype='multipart/form-data'>
+    <div class="col-md-6">
+      <div class="signup-form">
+  <form class="form-horizontal" role="form" action='/signup' method='POST'>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputName2">Name</label>
+      <input type="text" name="name"class="form-control" id="exampleInputName2" placeholder="Name">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputName2">Email</label>
+      <input type="email" name="email"class="form-control" id="exampleInputEmail2" placeholder="Email">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputPassword2">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputCity2">City</label>
+      <input type="text" name="city"class="form-control" id="exampleInputCity2" placeholder="City">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputState_Province2">State or Province</label>
+      <input type="text" name="state or province"class="form-control" id="exampleInputState_Province2" placeholder="State or Province">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputCountry2">Country</label>
+      <input type="text" name="country"class="form-control" id="exampleInputCountry2" placeholder="Country">
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputBio2">Bio</label>
+      <input type="text" name="bio"class="form-control" id="exampleInputBio2" placeholder="Tell us about yourself...">
+    </div>
+      <span class="btn btn-info btn-file">
+        <i class="glyphicon glyphicon-camera"></i> Choose Profile Photo <input type="file">
+      </span>
+    </div>
+    <div class="col-md-6">
+      <button type ="submit" class="btn btn-sm btn-info" ><span class="glyphicon glyphicon-hand-up"></span> Dinr Up!</button>
+      </form>
+      <br>
+      <a href="/"> Already have an account?</a>
+    </div>
+  </form>
+</div>
+

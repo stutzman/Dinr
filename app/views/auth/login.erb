@@ -1,13 +1,7 @@
 <link rel="stylesheet" href="/stylesheets/login.css">
 
-<!-- <form class="box" action='/login' method='POST'>
-  <input type="email" name="email" placeholder="Email"></input>
-  <input type="password" name="password" placeholder="password"></input>
-  <button type="submit" class="btn btn-primary btn-info">
-    <i class="glyphicon glyphicon-home"></i> Login
-  </button>
-  <a href="/signup" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-user"></span> New User</a>
-</form> -->
+<h1>Dinr.</h1>
+
 <div class="login-form">
   <form class="form-inline" role="form" action='/login' method='POST'>
     <div class="form-group">
@@ -18,14 +12,19 @@
       <label class="sr-only" for="exampleInputPassword2">Password</label>
       <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
     </div>
-    <!-- <div class="checkbox">
-      <label>
-        <input type="checkbox"> Remember me
-      </label>
-    </div> -->
-    <button type="submit" class="btn btn-primary btn-info">
+    
+    <button type="submit" class="btn btn-primary btn-info" data-toggle="modal" data-target=".bs-login-modal-lg">
       <i class="glyphicon glyphicon-home"></i> Login
     </button>
-    <a href="/signup" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-user"></span> New User</a>
+
+    <a href="/signup" class="btn btn-primary btn-info" data-toggle="modal" data-target=".bs-new-user-modal-lg"><span class="glyphicon glyphicon-user"></span> New User</a>
   </form>
+</div>
+
+<div class="modal fade bs-new-user-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
 </div>
