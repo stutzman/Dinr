@@ -76,14 +76,26 @@ footer a{
 }
 
 .modal-event-stats{
+  text-align: left;
   float: none;
   display: table-cell;
   vertical-align: top;
   height: inherit;
   background-color: #808285;
+  color: #FDFDFD !important;
+}
+header h3{
+  text-align: center;
+}
+.modal h3{
+  text-align: left;
+}
+.modal-event-stats h3{
+  margin: 10px !important;
+  color: #FDFDFD !important;
 }
 
-.modal-event-stats h3{
+.modal-event-stats a{
   margin: 10px !important;
   color: #FDFDFD !important;
 }
