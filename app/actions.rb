@@ -7,6 +7,7 @@ helpers do
 end
 
 get '/' do
+  @signup = false
   genre = params[:category]
   @events = Event.future_events
   @category = Category.new
@@ -23,37 +24,42 @@ get '/' do
 end
 
 get '/signup' do
-  erb :'auth/signup'
+  @signup = true
+  erb :'/auth/login'
 end
 
 post '/signup' do
 
+  @signup = true
   @user = User.new(
     name:     params[:name],
     password: params[:password],
     email:    params[:email],
     bio:      params[:bio],
+    city:     params[:city],
+    state_province: params[:prov],
+    country:  params[:country]
   )
-
+  binding.pry
   if @user.save
 
     img_url = "/images/users/#{@user.id}.jpg"
-
     File.open('public' + img_url, "w") do |f|
       f.write(params[:img][:tempfile].read)
     end
-
+    binding.pry
     @user.img_url = img_url
     @user.save
 
     session[:user_id] = @user.id
     redirect '/'
   else
-     erb :'auth/signup'
+     erb :'/auth/login'
   end
 end
 
 get '/login' do
+  @signup = false
   @user = User.new
   erb :'auth/login'
 end
