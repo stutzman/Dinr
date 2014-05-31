@@ -135,10 +135,20 @@ post '/events/reviews/:event_id' do
 end
 
 get '/events/:id/:name' do
+  
+  genre = params[:category]
+  @events = Event.future_events
+  @category = Category.new
 
   @event = Event.find(params[:id].first)
 
-  erb :'events/show'
+  if session[:user_id]
+    erb :index
+  else
+    erb :'auth/login'
+  end
+
+  erb :'/index'
 
 end
 
