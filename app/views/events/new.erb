@@ -1,25 +1,76 @@
+<link rel="stylesheet" href="/stylesheets/create-event.css">
 
-
-<form class="box" action='/events' method='POST' enctype='multipart/form-data'>
-  <input type="text" name="title" placeholder="Title">
-  </input><br>
-  <input type="text" name="location" placeholder="location">
-  </input><br>
-  <input type="number" name="guest_number" placeholder="Number of Guests">
-  </input><br>
-  <input type="text" name="attire" placeholder="What should guests wear?">
-  </input><br>
-  <input type="text" name="food_bio" placeholder="What are you serving?">
-  </input><br>
-  <input type="text" name="category" placeholder="category">
-  </input><br>
-  Date: <input type="date" name="event_date"><br>
-  Start Time: <input type="time" name="start_time">
-  </input><br>
-  End Time: <input type="time" name="end_time">
-  </input><br>
-    <br>
-  <input type="file" name="img"></input>
-  <br>
-  <input type="submit" value="Host!"></input>
-</form>
+<div class="modal fade create-event-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h1> New Event </h1>
+      <form class="form-horizontal" role="form" action='/events' method='POST' enctype='multipart/form-data'>
+        <div class="form-group">
+          <label for="title" class="col-sm-2 control-label">Title</label>
+          <div class="col-sm-10">
+            <input name="title" type="text" class="form-control" id="title" placeholder="Title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="loc" class="col-sm-2 control-label">Hood</label>
+          <div class="col-sm-10">
+            <input name="location" type="text" class="form-control" id="loc" placeholder="Where's Dinr?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="num-guests" class="col-sm-2 control-label">Guests</label>
+          <div class="col-sm-10">
+            <input name="guest_number" type="number" class="form-control" id="num-guests" placeholder="Number of Dinrsaurs?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="attire" class="col-sm-2 control-label">Attire</label>
+          <div class="col-sm-10">
+            <input name="attire" type="text" class="form-control" id="attire" placeholder="Attire">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category" class="col-sm-2 control-label">Tags</label>
+          <div class="col-sm-10">
+            <input name="category" type="text" class="form-control" id="category" placeholder="Category">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="date" class="col-sm-2 control-label">Date</label>
+          <div class="col-sm-10">
+            <input name="event_date" type="date" class="form-control" id="date" placeholder="Date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Start" class="col-sm-2 control-label">Start</label>
+          <div class="col-sm-10">
+            <input name="start_time" type="time" class="form-control" id="Start" placeholder="When's dinr?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="End" class="col-sm-2 control-label">End</label>
+          <div class="col-sm-10">
+            <input name="end_time" type="time" class="form-control" id="End" placeholder="Clean up time.">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="about" class="col-sm-2 control-label">The Food</label>
+          <div class="col-sm-10">
+            <textarea name="food_bio" type="text" class="form-control" id="about" placeholder="What's cookin'?"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pic" class="col-sm-2 control-label">Pic</label>
+          <div class="col-sm-10">
+            <input name="img" type="file" class="form-control" id="pic"></input>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Dinr Up!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

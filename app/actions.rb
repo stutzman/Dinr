@@ -40,14 +40,12 @@ post '/signup' do
     state_province: params[:prov],
     country:  params[:country]
   )
-  binding.pry
   if @user.save
 
     img_url = "/images/users/#{@user.id}.jpg"
     File.open('public' + img_url, "w") do |f|
       f.write(params[:img][:tempfile].read)
     end
-    binding.pry
     @user.img_url = img_url
     @user.save
 
@@ -134,9 +132,9 @@ post '/events/reviews/:event_id' do
     )
 
   if @review.save
-
+    redirect '/'
   else
-    puts "Please enter a valid review!"
+    erb :'/index'
   end
 end
 
@@ -146,7 +144,7 @@ get '/events/:id/:name' do
   @events = Event.future_events
   @category = Category.new
 
-  @event = Event.find(params[:id].first)
+  @event = Event.find(params[:id])
 
   if session[:user_id]
     erb :index
@@ -160,9 +158,12 @@ end
 
 get '/users/:id/:name' do
 
+  genre = params[:category]
+  @events = Event.future_events
+  @category = Category.new
   @user = User.find(params[:id].first)
 
-  erb :'users/show'
+  erb :index
 
 end
 
