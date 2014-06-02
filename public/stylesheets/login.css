@@ -7,11 +7,17 @@ body {
 }
 
 .login-form {
-  padding-top: 225px
+  padding-top: 50px
 }
 
 modal-vertical-centered {
   transform: translate(0, 50%) !important;
   -ms-transform: translate(0, 50%) !important; /* IE 9 */
   -webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+}
+
+.login-header {
+  display: inline-block;
+  padding-top: 70px;
+  padding-bottom: 0px
 }
