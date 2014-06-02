@@ -9,11 +9,16 @@ end
 get '/' do
   @signup = false
   genre = params[:category]
+  location = params[:location]
   @events = Event.future_events
   @category = Category.new
   if genre && !genre.empty?
     @category = Category.where(genre: genre).first
     @events = @events.where(category_id: @category.id)
+  end
+  if location && !location.empty?
+    @location = location
+    @events = @events.where(location: location)
   end
 
   if session[:user_id]
