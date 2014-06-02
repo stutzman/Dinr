@@ -7,3 +7,8 @@ body{
 .create-event-link{
   cursor: pointer;
 }
+
+h3{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

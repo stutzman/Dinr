@@ -41,7 +41,6 @@
             <li>Date: <%= @event.event_date.strftime("%d %b %y") %> </li>
             <li>Start: <%= @event.start_time.to_formatted_s(:time) %></li>
             <li>End: <%= @event.end_time.to_formatted_s(:time) %></li>
-            <li>Description <%= @event.food_bio %></li>
             <li>Dinrsaurs Attending: 
               <% @event.attending_users.each do |user| %>
                 <a href="/users/<%= "#{user.id}/#{URI.escape(user.name)}" %>">

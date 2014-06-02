@@ -171,3 +171,7 @@ get '/nav' do
   erb :grid
 end
 
+get '/barrett' do
+  erb :'/barrett'
+end
+
