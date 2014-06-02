@@ -1,0 +1,60 @@
+<!-- User Modal -->
+
+<link rel="stylesheet" href="/stylesheets/user-modal.css">
+
+
+<% if @user%>
+
+<div class="modal fade bs-example-modal-lg user-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class = "row container-fluid">
+        <div class="modal-img-box col-xs-12 col-sm-6 col-md-6" style="background-image: url(<%= @user.img_url %>)">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <header class="user-thumb-header">
+            <h2><%= @user.name %></h2>
+          </header>
+          <ul>
+            <li>About Me: <%= @user.bio %> </li>
+            <li>City: <%= @user.city %> </li>
+            <li>State/Province : <%= @user.state_province %> </li>
+            <li>Country: <%= @user.country %> </li>
+            <li>About Me: <%= @user.bio %> </li>
+          </ul>
+        </div>
+      </div>
+      <h3>My Upcoming Events</h3>
+      <div class="row container-fluid">
+        <% @user.future_events.each do |event| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 box">
+            <% @tile_event = event %>
+            <%= erb :'events/event-tile' %>
+          </div>
+        <% end %>
+      </div>
+      <h3>What I've hosted in the past</h3>
+      <div class="row container-fluid">
+        <% @user.past_events.each do |event| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 box">
+            <% @tile_event = event %>
+            <%= erb :'events/event-tile' %>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <h2>Reviews</h2>  
+        <% @user.reviews.each_with_index do |review, i| %>
+          <% @review=review; @i = i %>
+          <%= erb :reviews %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+  $('.user-modal').modal()
+</script>

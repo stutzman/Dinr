@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/stylesheets/reviews.css">
+
+<% review=@review; i = @i %>
+<div class="row container-fluid review">
+  <div class="col-xs-3 col-sm-2 col-md-2 reviewer-thumb">
+    <a href="/users/<%= "#{review.user.id}/#{URI.escape(review.user.name)}" %>"  class="thumbnail">
+      <img src=<%= review.user.img_url %> alt="<%= review.user.name %>">
+      By: <%= review.user.name %> 
+    </a>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9 review-text <%= ((i%2 == 0) ? 'odd-review' : nil) %>">
+    <%= review.comment %>
+  </div>
+</div>

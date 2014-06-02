@@ -1,0 +1,44 @@
+.box{
+  padding: 0;
+}
+.inner-box{
+  margin: 10px;
+  box-shadow: 2px 2px 10px #bbbbbb;
+  background-color: #ffffff;
+}
+
+.inner-box:hover{
+  transition: box-shadow 0.25s;
+  box-shadow: 4px 4px 10px #777777;
+}
+
+.event-thumb-header{
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+h3{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: #58595B !important;
+}
+
+footer a{
+  margin: 0 !important;
+}
+
+.attend-form{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+}
+
+.img-box{
+  height: 275px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+}

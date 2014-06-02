@@ -1,0 +1,22 @@
+.review{
+  display: table;
+  min-height: 100px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.reviewer-thumb{
+  text-align: left;
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.review-text{
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  background-color: #E2E1DD;
+}
+.odd-review{
+  background-color: #FDFDFD;
+}

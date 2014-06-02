@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/stylesheets/event-tile.css">
+
+<% event = @tile_event %>
+
+<div class="inner-box">
+  <a href="/events/<%= "#{event.id}/#{URI.escape(event.title)}"%>">
+  <div class="img-box" style="background-image: url(<%= event.img_url %>)">
+    <header class="event-thumb-header">
+      <h3><%= event.title %></h3>
+    </header>
+    <% unless User.find(session[:user_id]).attending?(event.id) %>
+      <form class="attend-form" action="/events/attend/<%= event.id %>" method="post">
+        <button class="btn btn-default" name="attend" type="submit" value="true">Crash this Dinr</button>
+      </form>
+    <% end %>
+  </div>
+  </a>
+  <footer class="event-thumb-about row container-fluid">
+    <a href="/users/<%= "#{event.user.id}/#{URI.escape(event.user.name)}" %>"  class="thumbnail col-xs-3 col-sm-3 col-md-3">
+      <img src=<%= event.user.img_url %> alt="...">
+    </a>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <ul class="list-unstyled">
+        <li>
+          <%= event.category.genre %>
+        </li>
+        <li>
+          <%= event.location %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3">
+      <%= event.event_date.strftime("%d %b") %>
+    </div>
+  </footer>
+</div>

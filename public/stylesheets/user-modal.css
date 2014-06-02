@@ -1,0 +1,60 @@
+.modal-content{
+  border-radius: 10px !important;
+  overflow: hidden
+}
+
+.modal-img-box{
+  height: 350px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.modal-attend-form{
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.modal-attend-button{
+  height: 80px;
+}
+
+.modal-image-footer{
+  display: table;
+}
+
+.modal-user-stats{
+  text-align: left;
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  height: inherit;
+  background-color: #808285;
+  color: #FDFDFD !important;
+}
+
+header h3{
+  text-align: center;
+}
+.modal h3{
+  text-align: left;
+}
+.modal-user-stats h3{
+  margin: 10px !important;
+  color: #FDFDFD !important;
+}
+
+.modal-user-stats a{
+  margin: 10px !important;
+  color: #FDFDFD !important;
+}
+
+.modal-user-description{
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  background-color: #E2E1DD;
+}
