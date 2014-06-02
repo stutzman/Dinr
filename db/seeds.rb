@@ -20,6 +20,17 @@ User.create(
 )
 
 User.create(
+  name:           "Andre Soesilo",
+  password:       "qwerty",
+  email:          "asoesilo84@gmail.com",
+  bio:            "Sup?",
+  img_url:        "/images/users/Andre-Soesilo.JPG",
+  city:           "Burnaby",
+  state_province: "BC",
+  country:        "CAN" 
+)
+
+User.create(
   name:           "Barrett Stutzman",
   password:       "qwerty",
   email:          "barrett.stutzman@gmail.com",

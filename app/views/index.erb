@@ -47,7 +47,6 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= User.find(session[:user_id]).name %><b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href='/logout'>Logout</a></li>
-            <li><a href='/events/new'>Create an event</a></li>
             <li><a class="create-event-link" data-toggle="modal" data-target=".create-event-modal">Create Event</a></li>
           </ul>
         </li>
@@ -60,7 +59,7 @@
   <% @events.each do |event| %>
     <div class="col-xs-12 col-sm-6 col-md-3 box">
       <% @tile_event = event %>
-      <%= erb :'events/event-tile' %>
+      <%= erb :'/events/event-tile' %>
     </div>
   <% end %>
 </div>
