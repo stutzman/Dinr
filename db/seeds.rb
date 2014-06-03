@@ -46,7 +46,7 @@ User.create(
     name:           Faker::Name.name,
     password:       "qwerty",
     email:          "test#{i}@gmail.com",
-    bio:            Faker::Lorem.paragraph(20, true),
+    bio:            Faker::Lorem.sentence,
     img_url:        "/images/users/#{i}.JPG",
     city:           Faker::Address.city,
     state_province: Faker::Address.state,
@@ -69,7 +69,7 @@ hoods=["Kits", "The Drive", "Gastown", "North Van", "Downtown", "Yaletown", "Mai
     event_date:   Date.new(2013,i%12+1,i%30+1),
     start_time:   Time.at(628232400+i*10000),
     end_time:     Time.at(628232400+i*10000),
-    food_bio:     Faker::Lorem.paragraph(50, true),
+    food_bio:     Faker::Lorem.sentence,
     category_id:  Category.all[i%Category.count].id,
     user_id:      User.all[i%User.count].id,
     img_url:      "/images/events/#{i+1}.jpg"
@@ -87,7 +87,7 @@ end
     event_date:   Date.new(2014,i%12+1,i%30+1),
     start_time:   Time.at(628232400+i*10000),
     end_time:     Time.at(628232400+i*10000),
-    food_bio:     Faker::Lorem.paragraph(50, true),
+    food_bio:     Faker::Lorem.sentence,
     category_id:  Category.all[i%Category.count].id,
     user_id:      User.all[i%User.count].id,
     img_url:      "/images/events/#{(i+1)%5}.jpg"
