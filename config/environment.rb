@@ -7,7 +7,7 @@ require 'active_support/all'
 require 'sinatra'
 require 'sinatra/activerecord'
 
-require 'pry'
+require 'pry' if development?
 require 'faker'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
